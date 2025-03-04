@@ -1,4 +1,4 @@
-package com.colak.dealer;
+package com.colak.dealerrouter;
 
 import org.zeromq.SocketType;
 import org.zeromq.ZContext;

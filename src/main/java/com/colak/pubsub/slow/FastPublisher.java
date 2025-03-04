@@ -20,7 +20,7 @@ public class FastPublisher {
                 String message = "Message " + counter;
 
                 // Non-blocking send (drops messages if buffer is full)
-                boolean sent = publisher.send(message, ZMQ.DONTWAIT);
+                boolean sent = publisher.send(message);
 
                 if (!sent) {
                     System.out.println("Dropped: " + message);

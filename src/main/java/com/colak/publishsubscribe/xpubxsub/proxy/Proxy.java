@@ -7,14 +7,19 @@ public class Proxy {
     public static void main() {
 
         try (ZContext context = new ZContext();
-             ZMQ.Socket xpub = context.createSocket(SocketType.XPUB);
-             ZMQ.Socket xsub = context.createSocket(SocketType.XSUB)) {
+             ZMQ.Socket frontend = context.createSocket(SocketType.XSUB);
+             ZMQ.Socket backend = context.createSocket(SocketType.XPUB)) {
 
-            xpub.bind("tcp://*:5556"); // Subscribers connect here
-            xsub.bind("tcp://*:5555"); // Publishers connect here
+            // Publishers connect here
+            frontend.bind("tcp://*:5555");
+
+            // Subscribers connect here
+            backend.bind("tcp://*:5556");
 
             System.out.println("Proxy running...");
-            ZMQ.proxy(xsub, xpub, null); // Forward messages
+
+            // Forward messages
+            ZMQ.proxy(frontend, backend, null);
 
         } catch (Exception e) {
             e.printStackTrace();

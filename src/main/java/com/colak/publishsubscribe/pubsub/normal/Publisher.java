@@ -1,4 +1,4 @@
-package com.colak.publishsubscribe.pubsub;
+package com.colak.publishsubscribe.pubsub.normal;
 
 import org.zeromq.SocketType;
 import org.zeromq.ZContext;

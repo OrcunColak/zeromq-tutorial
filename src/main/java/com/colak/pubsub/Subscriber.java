@@ -14,8 +14,9 @@ public class Subscriber {
 
         try (// Create a single-threaded scheduler
              ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
-             ZContext context = new ZContext()) {
-            ZMQ.Socket subscriber = context.createSocket(SocketType.SUB);
+             ZContext context = new ZContext();
+             ZMQ.Socket subscriber = context.createSocket(SocketType.SUB)) {
+
             subscriber.connect("tcp://localhost:5556");
 
             // Subscribe to all messages (empty string) or a specific topic (e.g., "Topic1")

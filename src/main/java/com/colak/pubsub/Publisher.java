@@ -10,8 +10,9 @@ public class Publisher {
 
     public static void main() throws InterruptedException {
 
-        try (ZContext context = new ZContext()) {
-            ZMQ.Socket publisher = context.createSocket(SocketType.PUB);
+        try (ZContext context = new ZContext();
+             ZMQ.Socket publisher = context.createSocket(SocketType.PUB)) {
+
             publisher.bind("tcp://*:5556");
 
             while (true) {

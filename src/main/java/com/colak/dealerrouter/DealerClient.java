@@ -11,8 +11,9 @@ public class DealerClient {
 
     public static void main() {
 
-        try (ZContext context = new ZContext()) {
-            ZMQ.Socket dealer = context.createSocket(SocketType.DEALER);
+        try (ZContext context = new ZContext();
+             ZMQ.Socket dealer = context.createSocket(SocketType.DEALER)) {
+
             dealer.setIdentity("Client1".getBytes(ZMQ.CHARSET)); // Set unique identity
             dealer.connect("tcp://localhost:5555");
 

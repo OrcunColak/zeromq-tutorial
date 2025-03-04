@@ -8,8 +8,9 @@ public class DealerServer {
 
     public static void main() {
 
-        try (ZContext context = new ZContext()) {
-            ZMQ.Socket router = context.createSocket(SocketType.ROUTER);
+        try (ZContext context = new ZContext();
+             ZMQ.Socket router = context.createSocket(SocketType.ROUTER)) {
+
             router.bind("tcp://*:5555");
             System.out.println("Server is running...");
 

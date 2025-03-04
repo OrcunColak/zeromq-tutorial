@@ -6,7 +6,7 @@ import org.zeromq.ZMQ;
 
 import java.util.concurrent.TimeUnit;
 
-public class Publisher {
+public class FastPublisher {
 
     public static void main() throws InterruptedException {
 
@@ -31,7 +31,7 @@ public class Publisher {
                 counter++;
 
                 // Simulate work
-                TimeUnit.MILLISECONDS.sleep(100);
+                TimeUnit.MILLISECONDS.sleep(10);
             }
         }
     }

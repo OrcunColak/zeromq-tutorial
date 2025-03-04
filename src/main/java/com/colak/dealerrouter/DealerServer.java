@@ -23,9 +23,9 @@ public class DealerServer {
                 System.out.println("Received: " + receivedMessage + " from " + new String(identity, ZMQ.CHARSET));
 
                 // Respond asynchronously
-                String response = "Reply to: " + receivedMessage;
                 router.send(identity, ZMQ.SNDMORE); // Send back to the same client
                 router.send("", ZMQ.SNDMORE); // Empty frame
+                String response = "Reply to: " + receivedMessage;
                 router.send(response); // Response message
             }
         }

@@ -30,9 +30,12 @@ public class DealerClient {
 
                 // Send multiple requests without waiting
                 for (int i = 1; i <= 5; i++) {
-                    String message = "Message " + i;
+
                     dealer.send("", ZMQ.SNDMORE); // Empty frame
+
+                    String message = "Message " + i;
                     dealer.send(message);
+
                     System.out.println("Sent: " + message);
                     Thread.sleep(1000);
                 }

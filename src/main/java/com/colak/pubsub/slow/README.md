@@ -1,7 +1,7 @@
 This example creates a slow subscriber. 
 
 From ZeroMQ docs
-https://zguide.zeromq.org/docs/chapter5/
+https://zguide.zeromq.org/docs/chapter5/#Slow-Subscriber-Detection-Suicidal-Snail-Pattern
 
 > **Queue messages on the subscriber.**   
 > 

@@ -1,4 +1,4 @@
-package com.colak.requestresponse;
+package com.colak.requestresponse.synchronous.reqrep;
 
 import org.zeromq.SocketType;
 import org.zeromq.ZContext;
@@ -22,7 +22,7 @@ public class HelloWorldServer {
 
                 // Send a response
                 String response = "Hello, world!";
-                socket.send(response.getBytes(ZMQ.CHARSET), 0);
+                socket.send(response.getBytes(ZMQ.CHARSET));
             }
         }
     }

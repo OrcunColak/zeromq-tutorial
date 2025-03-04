@@ -19,6 +19,7 @@ public class HelloWorldClient {
             socket.send(request.getBytes(ZMQ.CHARSET));
 
             // Receive the response
+            // Block until a message is received
             byte[] reply = socket.recv(0);
             System.out.println("Received: " + new String(reply, ZMQ.CHARSET));
         }
